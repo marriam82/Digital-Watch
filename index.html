@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Digital Clock</title>
+<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+</head>
+<style>
+body{
+                      background:radial-gradient(circle,#071B1B,#007072,#071B1B);
+                  }
+                  #time{
+                      position: absolute;
+                      top:50%;
+                      left:50%;
+                      transform: translate(-50%,-50%);
+                      color:aqua;
+                      font-family: Orbitron;
+                      letter-spacing: 7px;
+                      font-weight: bold;
+                      font-size:5em;
+                  }
+          </style>
+</body>
+<audio id="aud" src="tink.wav"></audio>
+              <div id="time"></div>
+              <div id="date"></div>
+              <script>                                  
+                        var time =document.getElementById('time')
+                        setInterval(handler, 1000)
+                        function handler()
+                        {
+                                  var date = new Date()
+                                  var min = date.getMinutes()
+                                  var sec = date.getSeconds()
+                                  var hrs = date.getHours()
+                                  var cal = date.toDateString()
+                                  time.innerHTML = `${hrs}:${min}:${sec}<br>${cal}`
+                                  document.getElementById("aud").play()
+                        }
+                        var date =document.getElementById("date")
+                    
+              </script>
+           
+</html>
